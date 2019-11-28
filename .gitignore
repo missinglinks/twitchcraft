@@ -1,2 +1,4 @@
-test.py
+data/
 __pycache__/
+test.py
+config.py
