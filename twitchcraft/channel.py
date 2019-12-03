@@ -28,10 +28,20 @@ class ChannelDownloader:
 
         self.api = TwitchApi(client_id)
 
+        self._current_files = archive_files = "_".join(self.archive._archive.namelist())
+
     def _fetch_by_channel_id(self, channel_id, username):
+
+        # exit because of invalid channel_id
         if not channel_id:
             print("No channel found for username!")
             sys.exit(1)
+
+        #return if user was already downloaded
+        if "_" + username + "/" in self._current_files:
+            return
+
+        print("downloading data ...")
 
         metadata_file = self._metadata_file(username)
         if not metadata_file in self.archive:        
