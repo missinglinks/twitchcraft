@@ -1,0 +1,2 @@
+requests==2.22.0
+git+git://github.com/missinglinks/zip_archive@master#egg=zip_archive
